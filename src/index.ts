@@ -19,7 +19,8 @@ import { Setup } from "./resolvers/Setup";
     schema: await buildSchema({
       resolvers: [AuthenticationResolver, CartResolver, ItemResolver, PageResolver, Setup]
     }),
-    context: ({ req, res }) => ({ req, res })
+    context: ({ req, res }) => ({ req, res }),
+    introspection: true,
   });
 
   apolloServer.applyMiddleware({ app, cors: false });
