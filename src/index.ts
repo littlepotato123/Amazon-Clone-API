@@ -24,7 +24,9 @@ import { Setup } from "./resolvers/Setup";
 
   apolloServer.applyMiddleware({ app, cors: false });
 
-  app.listen(4000, () => {
-    console.log("express server started");
+  const PORT = process.env.PORT || 4000;
+
+  app.listen(PORT, () => {
+    console.log(`http://localhost:${PORT}/graphql`);
   });
 })();
