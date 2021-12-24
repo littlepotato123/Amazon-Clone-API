@@ -12,6 +12,8 @@ import { Setup } from "./resolvers/Setup";
 (async () => {
   const app = express();
 
+  const PORT = process.env.PORT || 4000;
+
   await createConnection();
 
   const apolloServer = new ApolloServer({
@@ -23,7 +25,7 @@ import { Setup } from "./resolvers/Setup";
 
   apolloServer.applyMiddleware({ app, cors: false });
 
-  app.listen(4000, () => {
+  app.listen(PORT, () => {
     console.log("http://localhost:4000/graphql");
   });
 })();
