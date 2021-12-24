@@ -12,20 +12,19 @@ import { Setup } from "./resolvers/Setup";
 (async () => {
   const app = express();
 
-  const PORT = process.env.PORT || 4000;
-
   await createConnection();
+
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [AuthenticationResolver, Setup, ItemResolver, CartResolver, PageResolver]
+      resolvers: [AuthenticationResolver, CartResolver, ItemResolver, PageResolver, Setup]
     }),
     context: ({ req, res }) => ({ req, res })
   });
 
   apolloServer.applyMiddleware({ app, cors: false });
 
-  app.listen(PORT, () => {
-    console.log("http://localhost:4000/graphql");
+  app.listen(4000, () => {
+    console.log("express server started");
   });
 })();
