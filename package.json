@@ -5,6 +5,7 @@
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.4",
     "apollo-server-express": "2",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "graphql": "^15.3.0",
     "nodemon": "^2.0.15",
